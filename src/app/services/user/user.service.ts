@@ -62,7 +62,7 @@ export class UserService {
 
     for (let i = 0; i < this.bets.length; i++) {
       const bet: IMyBetStat = this.bets[i];
-      if (bet.total > bestBet.total) {
+      if (bet.isWinner && bet.total > bestBet.total) {
         bestBet.multiplier = bet.multiplier;
         bestBet.total = bet.total;
       }
