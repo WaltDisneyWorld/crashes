@@ -1,0 +1,34 @@
+<div class="container">
+  <app-my-bets
+    [dataSource]="stats.myBets"
+    class="my-bets component"
+  ></app-my-bets>
+  <app-game-viewer
+    [multiplier]="currentMultiplier"
+    [gameIsRunning]="gameIsRunning"
+    [time]="timeBeforeStart"
+    [multiplierBet]="myMultiplierBet"
+    class="game-screen component"
+  ></app-game-viewer>
+  <div class="bets-form component">
+    <app-bets-form
+      *ngIf="user; else user_login"
+      [gameIsRunning]="gameIsRunning"
+      [betIsMade]="betIsMade"
+      [balance]="user.balance"
+      (betMade)="saveBet($event)"
+    ></app-bets-form>
+    <ng-template #user_login>
+      <app-user-login (userCreated)="updateUser($event)"></app-user-login>
+    </ng-template>
+  </div>
+  <app-last-matches
+    [dataSource]="stats.lastMatches"
+    class="last-matches component"
+  ></app-last-matches>
+  <app-best-winning-bets
+    [otherPlayers]="stats.bestWinnings.otherPlayers"
+    [user]="stats.bestWinnings.user || null"
+    class="best-winning-bets component"
+  ></app-best-winning-bets>
+</div>

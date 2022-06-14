@@ -1,0 +1,38 @@
+<mat-card class="container">
+  <h4 class="">Best winnings</h4>
+  <div class="table-container">
+    <table class="mat-table" *ngIf="otherPlayers.length > 0">
+      <tr class="mat-header-row center" [style.position]="'sticky'">
+        <th *ngFor="let column of displayedColumns" class="mat-header-cell">
+          {{ column }}
+        </th>
+      </tr>
+      <tr class="mat-row center" *ngFor="let data of otherPlayers">
+        <td class="mat-cell">{{ data.userName }}</td>
+        <td class="mat-cell">{{ data.multiplier }}X</td>
+        <td class="mat-cell money-color-light">${{ data.total }}</td>
+      </tr>
+    </table>
+    <p *ngIf="otherPlayers.length == 0" class="default-message">
+      No one has won in this round.
+    </p>
+  </div>
+  <hr />
+  <h4 class="" style="margin-top: 14px">Your best winning</h4>
+  <div *ngIf="user">
+    <div *ngIf="user.total > 0">
+      <div class="container-width">
+        <table class="mat-table">
+          <tr class="mat-row center">
+            <td class="mat-cell">{{ user.userName }}</td>
+            <td class="mat-cell">{{ user.multiplier }}X</td>
+            <td class="mat-cell money-color-light">${{ user.total }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <p *ngIf="!user || user.total == 0" class="default-message">
+    No data to show. Try making some bets.
+  </p>
+</mat-card>

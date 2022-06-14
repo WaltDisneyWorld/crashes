@@ -1,0 +1,8 @@
+.header-spacing {
+  flex: 1 1 auto;
+}
+
+.balance {
+  margin-left: 14px;
+  font-weight: bold;
+}

@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+  <span>{{ appName }}</span>
+  <span class="header-spacing"></span>
+  <div *ngIf="user">
+    <span> Welcome {{ user.name }} </span>
+    <span class="balance money-color-light">${{ user.balance }}</span>
+  </div>
+</mat-toolbar>

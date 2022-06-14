@@ -1,0 +1,19 @@
+<mat-card class="container">
+  <h4>Last 7 matches</h4>
+  <div class="table-container" *ngIf="dataSource.length > 0">
+    <table class="mat-table">
+      <tr class="mat-header-row center" [style.position]="'sticky'">
+        <th *ngFor="let column of displayedColumns" class="mat-header-cell">
+          {{ column }}
+        </th>
+      </tr>
+      <tr class="mat-row center" *ngFor="let data of dataSource">
+        <td class="mat-cell">#{{ data.gameNumber }}</td>
+        <td class="mat-cell">{{ data.maxMultiplier }}X</td>
+      </tr>
+    </table>
+  </div>
+  <p *ngIf="dataSource.length == 0" class="default-message">
+    No data to show. Wait to the current game ends.
+  </p>
+</mat-card>

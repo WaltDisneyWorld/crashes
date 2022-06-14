@@ -1,0 +1,35 @@
+.container {
+  height: calc(100% - 64px);
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    "mybets gamescreen lastmatches"
+    "mybets betsform bestwinningbets";
+
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.my-bets {
+  grid-area: mybets;
+}
+
+.game-screen {
+  grid-area: gamescreen;
+}
+
+.bets-forms {
+  grid-area: betsform;
+}
+
+.last-matches {
+  grid-area: lastmatches;
+}
+
+.best-winning-bets {
+  grid-area: bestwinningbets;
+}
+
+.component {
+  padding: 8px;
+}

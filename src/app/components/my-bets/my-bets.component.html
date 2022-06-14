@@ -1,0 +1,27 @@
+<mat-card class="container">
+  <h4>My bets</h4>
+  <div class="table-container" *ngIf="dataSource.length > 0">
+    <table class="mat-table">
+      <tr class="mat-header-row center" [style.position]="'sticky'">
+        <th *ngFor="let column of displayedColumns" class="mat-header-cell">
+          {{ column }}
+        </th>
+      </tr>
+      <tr class="mat-row center" *ngFor="let data of dataSource">
+        <td class="mat-cell">${{ data.amount }}</td>
+        <td class="mat-cell">{{ data.multiplier }}X</td>
+        <td class="mat-cell">{{ data.isWinner ? "Win" : "Lose" }}</td>
+        <td class="mat-cell">
+          <span
+            [ngClass]="data.isWinner ? 'money-color-light' : 'danger-color'"
+          >
+            {{ (data.isWinner ? "+" : "-") + "$" + data.total }}</span
+          >
+        </td>
+      </tr>
+    </table>
+  </div>
+  <p *ngIf="dataSource.length == 0" class="default-message">
+    No data to show. Try making some bets.
+  </p>
+</mat-card>

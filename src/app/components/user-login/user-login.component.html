@@ -1,0 +1,29 @@
+<mat-card class="container">
+  <div class="form">
+    <p>Please enter your name</p>
+    <form>
+      <mat-form-field class="input-full-width" appearance="fill" color="accent">
+        <mat-label>Username</mat-label>
+        <input
+          type="text"
+          matInput
+          [formControl]="userNameControl"
+          autocomplete="off"
+          #user_name
+        />
+        <mat-error *ngIf="userNameControl.hasError('required')">
+          Username is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+  <button
+    class="enter-button"
+    mat-raised-button
+    color="primary"
+    [disabled]="userNameControl.hasError('required')"
+    (click)="saveUser(user_name.value)"
+  >
+    Enter
+  </button>
+</mat-card>
