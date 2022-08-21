@@ -3,7 +3,7 @@
     <p [ngClass]="setColor()">{{ multiplier }}X</p>
   </div>
 
-  <p *ngIf="gameIsRunning" class="time-counter">Game in progress..</p>
+  <p *ngIf="gameIsRunning" class="time-counter">Game in progress...</p>
   <p *ngIf="!gameIsRunning && time > 0" class="time-counter">
     Next round starts in {{ time }}
   </p>
